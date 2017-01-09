@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Booking;
 use App\Hall;
 use App\Stand;
 use Illuminate\Http\Request;
@@ -53,6 +54,13 @@ class HallController extends Controller
         //
         $hall = Hall::findOrFail($id);
         $stands = $hall->stands;
+        foreach ($stands as $stand) {
+            if (!empty($stand->booking_id)) {
+                $st = Stand::findOrFail($stand->booking_id)->booking->id;
+                $bookingInfo = Booking::findOrFail($st)->user;
+                $stand['booking_info'] = $bookingInfo;
+            }
+        }
         $hallData = [
             'hall_id' => $hall->id,
             'hall_name' => $hall->name,

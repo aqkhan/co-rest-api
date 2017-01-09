@@ -18,21 +18,3 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-
-Route::get('halls/{id}', function($id){
-    $hall = App\Hall::findOrFail($id);
-    $stands = $hall->stands;
-    foreach ($stands as $stand) {
-        if (!empty($stand->booking_id)) {
-            $st = App\Stand::findOrFail($stand->booking_id)->booking;
-            print_r($st);
-            echo '<br><br><br>';
-        }
-    }
-    $hallData = [
-        'hall_id' => $hall->id,
-        'hall_name' => $hall->name,
-        'hall_stand' => $stands
-    ];
-    //dd($hallData);
-});
