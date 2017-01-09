@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Hall;
+use App\Stand;
 use Illuminate\Http\Request;
 
 class HallController extends Controller
@@ -51,7 +52,13 @@ class HallController extends Controller
     {
         //
         $hall = Hall::findOrFail($id);
-        return $hall;
+        $stands = Stand::where('hall_id', $id)->get();
+        $hallData = [
+            'hall_id' => $hall->id,
+            'hall_name' => $hall->name,
+            'hall_stand' => $stands
+        ];
+        return $hallData;
     }
 
     /**
