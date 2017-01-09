@@ -8,7 +8,7 @@ class Booking extends Model
 {
     //
     protected $fillable = [
-        'user_id', 'docs_path'
+        'stand_id', 'user_id', 'docs_path'
     ];
     
     // Details here
