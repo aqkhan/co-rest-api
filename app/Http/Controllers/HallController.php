@@ -52,7 +52,7 @@ class HallController extends Controller
     {
         //
         $hall = Hall::findOrFail($id);
-        $stands = Stand::where('hall_id', $id)->get();
+        $stands = $hall->stands;
         $hallData = [
             'hall_id' => $hall->id,
             'hall_name' => $hall->name,

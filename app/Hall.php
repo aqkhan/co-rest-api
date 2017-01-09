@@ -20,4 +20,7 @@ class Hall extends Model
     public function stands() {
         return $this->hasMany('App\Stand');
     }
+    
+    // Booking details
+    
 }
