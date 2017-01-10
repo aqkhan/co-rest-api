@@ -18,7 +18,6 @@ use Illuminate\Http\Request;
 //})->middleware('auth:api');
 
 Route::resource('/event', 'EventController');
-
 Route::resource('/hall', 'HallController');
 Route::resource('/stand', 'StandController');
 Route::resource('/booking', 'BookingController');
