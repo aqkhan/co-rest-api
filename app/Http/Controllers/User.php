@@ -37,8 +37,8 @@ class User extends Controller
     public function store(Request $request)
     {
         //
-        \App\User::create($request->all());
-        return '[{success}]'; 
+        $user = \App\User::create($request->all());
+        return $user;
     }
 
     /**
