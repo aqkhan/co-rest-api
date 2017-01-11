@@ -39,7 +39,7 @@ class EventController extends Controller
     {
         //
         Event::create($request->all());
-        //return 'success';
+        return '[{success}]';
         //return $request->all();
     }
 
